@@ -1,3 +1,20 @@
+"""
+main_script.py
+
+This is the main script that orchestrates the translation of natural language 
+requests to R code using Replicate's API.
+It handles clipboard input and output, prepares attachment files, and interacts 
+with the Replicate API.
+
+Functions:
+    - translate_to_r_with_replicate(text): Sends the text to Replicate's API 
+      for translation into R code.
+    - main(): The main function orchestrating the translation process.
+"""
+import time
+from replicate.exceptions import ReplicateError
+from clipboard_utils import get_clipboard, copy_to_clipboard
+from attachment_utils import prepare_csv
 import os
 import pyperclip
 import sys
@@ -6,22 +23,6 @@ import pandas as pd
 import replicate 
 from response_parser import parse_response_with_regex
 
-
-def prepare_csv():
-    """
-    Prépare et combine les tableaux CSV pour l'analyse.
-    Returns:
-        str: Une chaîne Markdown représentant les tableaux combinés.
-    """
-    csv_filepath = os.getenv("csv_path")
-    file_names = os.listdir(csv_filepath)
-    csv_files = [file for file in file_names if re.search(r'\.csv$', file)]
-    combined_table = ''
-    for csv in csv_files:
-        df = pd.read_csv(os.path.join(csv_filepath, csv), nrows=200)
-        merged_df = pd.concat([df.head(5), df.tail(5)], ignore_index=True)
-        combined_table += 2 * "\n" + 98 * "#" + 2 * "\n" + merged_df.to_markdown(tablefmt="grid")
-    return combined_table
 
 
 def generate_enhanced_prompt(user_request: str) -> str:
@@ -116,7 +117,7 @@ def send_request_to_model(prompt_text: str, max_tokens=2000, temperature=0.5):
 
 
 def main():
-    user_request = pyperclip.paste() + prepare_csv()
+    user_request = get_clipboard() + prepare_csv()
     print(f"Requête récupérée : {user_request}")
     structured_prompt = generate_enhanced_prompt(user_request)
     response = send_request_to_model(structured_prompt)
@@ -137,7 +138,7 @@ def main():
             
             if new_response:
                 print("Réponse finale de l'API:", new_response)
-                pyperclip.copy(new_response)
+                copy_to_clipboard(new_response)
                 print("Réponse copiée dans le presse-papier.")
             else:
                 print("Erreur lors de l'envoi de la seconde requête.")
