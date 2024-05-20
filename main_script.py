@@ -3,10 +3,8 @@ import pyperclip
 import sys
 import re
 import pandas as pd
-import replicate  # Assurez-vous que le package 'replicate' est installé
-
-sys.path.append('/Users/mateo/Desktop/Automator_Model')
-from response_parser import parse_response_with_regex  # Assurez-vous que cette fonction est bien définie pour extraire les paramètres
+import replicate 
+from response_parser import parse_response_with_regex
 
 
 def prepare_csv():
