@@ -21,7 +21,7 @@ Pour installer le code Python et les bibliothèques nécessaires, suivez les ét
 
    Pour vérifier que les documents sont présents (si la sortie n'est pas vide, c'est que tout va bien), exécutez les commandes suivantes dans le terminal :
    ```bash
-   cd Natural_language_Llama3_shortcut
+   cd Natural_language_request_Llama3
    ```
    Puis :
    ```bash
@@ -36,7 +36,7 @@ Pour installer le code Python et les bibliothèques nécessaires, suivez les ét
 
    Copiez ce chemin et ajoutez-y "/Natural_language_to_R.py" de manière à construire le chemin vers le code Python qui nous sera utile plus tard. Cela devrait ressembler à ceci :
    ```bash
-   /Users/nom_user/Natural_language_Llama3_shortcut/Natural_language_to_R.py
+   /Users/nom_user/Natural_language_request_Llama3/Natural_language_to_R.py
    ```
    Vous pouvez simplement le garder de côté, nous en aurons besoin par la suite.
 
@@ -186,7 +186,7 @@ Si vous avez déjà effectué toutes ces étapes auparavant mais que vous souhai
    ```bash
    # Veillez à remplacer le chemin par le votre
    # Pour rappel vous pouvez connaître ce chemin simplement en exécutant "cd Natural_language_to_R"
-   cd /Users/nom_user/Natural_language_Llama3_shortcut
+   cd Natural_language_request_Llama3
    ```
    Puis :
    ```bash
