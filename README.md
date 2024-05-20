@@ -14,7 +14,7 @@ Pour installer le code Python et les bibliothèques nécessaires, suivez les ét
    
    Ouvrez un terminal et exécutez la commande suivante pour télécharger les fichiers nécessaires :
    ```bash
-   git clone https://github.com/MateoDib/Natural_language_Llama3_shortcut.git
+   git clone https://github.com/MateoDib/Natural_language_request_Llama3.git
    ```
    
 2. **Vérifier le téléchargement des documents**
