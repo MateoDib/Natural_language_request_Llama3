@@ -186,7 +186,7 @@ Si vous avez déjà effectué toutes ces étapes auparavant mais que vous souhai
    ```bash
    # Veillez à remplacer le chemin par le votre
    # Pour rappel vous pouvez connaître ce chemin simplement en exécutant "cd Natural_language_to_R"
-   cd Natural_language_request_Llama3
+   cd /Users/mateo/Natural_language_request_Llama3
    ```
    Puis :
    ```bash
