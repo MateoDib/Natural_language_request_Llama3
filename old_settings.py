@@ -28,15 +28,12 @@ def lire_fichier_existant():
     # Methode Mac OS
     if platform == "darwin":
         try:
-            with open("lanceur.sh", "r", encoding='utf-8') as fichier:
+            with open("lanceur.sh", "r") as fichier:
                 contenu = fichier.readlines()
-            if len(contenu) < 5:
-                raise ValueError("Le fichier lanceur.sh ne contient pas assez de lignes.")
-
             old_api_token = contenu[1].split("'")[1]
-            old_csv_path = contenu[2].split("'")[1]
-            old_python_path = contenu[3].split("'")[1]
-            old_script_path = contenu[4].split("'")[1]
+            old_csv_path = contenu[1].split("'")[3]
+            old_python_path = contenu[1].split()[2]
+            old_script_path = contenu[1].split()[3]
 
         except FileNotFoundError:
             return None, None, None, None  # Si le fichier n'existe pas
