@@ -22,19 +22,31 @@ def prepare_csv():
     Returns:
         str: Une chaîne Markdown représentant les tableaux combinés.
     """
-    input_table = []
     csv_filepath = os.getenv("CSV_PATH")
     file_names = os.listdir(csv_filepath)
     csv_files = [file for file in file_names if re.search(r'\.csv$', file)]
+    combined_table = ''
     if csv_files:
-        combined_table = ''
         for csv in csv_files:
-            t = pd.read_csv(csv_filepath + csv, nrows=200)
-            merged_df = pd.concat([t.head(5), t.tail(5)], ignore_index=True)
-            input_table = merged_df.to_markdown(tablefmt="grid")
-            combined_table += 2 * "\n" + 98 * "#" + 2 * "\n" + input_table.strip()
+            df = pd.read_csv(os.path.join(csv_filepath, csv), nrows=200)
+            merged_df = pd.concat([df.head(5), df.tail(5)], ignore_index=True)
+            combined_table += 2 * "\n" + 98 * "#" + 2 * "\n" + merged_df.to_markdown(tablefmt="grid")
         return combined_table
     return ""
+
+def prepare_csv():
+    """
+    Prépare et combine les tableaux CSV pour l'analyse.
+    Returns:
+        str: Une chaîne Markdown représentant les tableaux combinés.
+    """
+   # csv_filepath = os.getenv("csv_path")
+    csv_filepath='/home/werner/Documents/GitHub/CorrectionAppScripts/CSV_PDF'
+    file_names = os.listdir(csv_filepath)
+    csv_files = [file for file in file_names if re.search(r'\.csv$', file)]
+    combined_table = ''
+    for csv in csv_files:
+    return combined_table
 
 def prepare_pdf():
     """
