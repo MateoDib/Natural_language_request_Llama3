@@ -96,7 +96,7 @@ def demander_infos():
         if platform == "darwin":
             NEWCOMMAND=(
         f"#!/bin/bash\n"
-        f"REPLICATE_API_TOKEN='{new_token}' csv_path='{csv_path}' "
+        f"REPLICATE_API_TOKEN='{new_token}' CSV_PATH='{csv_path}' "
         f"{env_path} {script_path}\n"
         )
 
