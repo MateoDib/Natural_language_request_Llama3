@@ -23,7 +23,7 @@ def prepare_csv():
     Returns:
         str: Une chaîne Markdown représentant les tableaux combinés.
     """
-    csv_filepath = os.getenv("csv_path")
+    csv_filepath = os.getenv("CSV_PATH")
     file_names = os.listdir(csv_filepath)
     csv_files = [file for file in file_names if re.search(r'\.csv$', file)]
     combined_table = ''
