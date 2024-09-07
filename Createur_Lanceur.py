@@ -13,7 +13,7 @@ from tkinter import simpledialog
 def creer_lanceur(api_token, csv_path, python_path, script_path):
     contenu = (
         f"#!/bin/bash\n"
-        f"REPLICATE_API_TOKEN='{api_token}' csv_path='{csv_path}' "
+        f"REPLICATE_API_TOKEN='{api_token}' CSV_PATH='{csv_path}' "
         f"{python_path} {script_path}\n"
     )
     fichier_nom = "lanceur.sh"
