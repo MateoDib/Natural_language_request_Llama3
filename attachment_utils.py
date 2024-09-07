@@ -1,4 +1,5 @@
 """
+07/09/2024
 attachment_utils.py
 
 This module provides utility functions for managing file attachments,
@@ -22,7 +23,7 @@ def prepare_csv():
     Returns:
         str: Une chaîne Markdown représentant les tableaux combinés.
     """
-    csv_filepath = os.getenv("CSV_PATH")
+    csv_filepath = os.getenv("csv_path")
     file_names = os.listdir(csv_filepath)
     csv_files = [file for file in file_names if re.search(r'\.csv$', file)]
     combined_table = ''
@@ -34,6 +35,7 @@ def prepare_csv():
         return combined_table
     return ""
 
+
 def prepare_pdf():
     """
     Transforme et prépare en image les PDF pour l'analyse.
@@ -41,13 +43,13 @@ def prepare_pdf():
     Returns:
         Images from pdf
     """
-    pdf_filepath = os.getenv("CSV_PATH")
+    pdf_filepath = os.getenv("csv_path")
     file_names = os.listdir(pdf_filepath)
     pdf_files = [file for file in file_names if re.search(r'\.pdf$', file)]
 
     # Check if the /tmp directory already exists
     if pdf_files:
-        if not os.path.exists('CSV_PDF/tmp'):
+        if not os.path.exists('csv_path/tmp'):
             try:
                 # Create the /tmp directory if it does not exist
                 os.mkdir(os.path.join(pdf_filepath,'tmp'))
