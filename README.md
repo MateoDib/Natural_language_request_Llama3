@@ -78,10 +78,16 @@ Pour vous permettre d'exécuter facilement le script Python et donc d'avoir un r
    chmod +x /Users/nom_user/lanceur.sh && ./lanceur.sh
    ```
 
-	Pour savoir quoi mettre à la place de /Users/nom_user/votre_chemin_vers_environnement_python/python3, lancez la commande   suivante sur votre terminal :
+Pour savoir quoi mettre à la place de /Users/nom_user/lanceur.sh, lancez la commande suivante sur votre terminal :
    ```bash
    which lanceur.sh
    ```
+Puis :
+   ```bash
+   pwd
+   ```
+Vous obtenez ainsi le chemin vers le lanceur et pouvez l'utiliser pour le raccourci.
+
 
 6. **Vérifier le Shell et la sortie **
 
@@ -90,7 +96,7 @@ Pour vous permettre d'exécuter facilement le script Python et donc d'avoir un r
    echo $SHELL
     ```
 
-	De plus, pour l’option « Transmettre l’entrée », il faudra choisir l’option « vers stdin ».
+De plus, pour l’option « Transmettre l’entrée », il faudra choisir l’option « vers stdin ».
 
 Si la sortie est « /bin/zsh », vous devrez renseigner « zsh », si c’est « /bin/bash », alors vous devrez choisir « sh ».
 
