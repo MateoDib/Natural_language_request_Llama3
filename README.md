@@ -1,18 +1,20 @@
-# Traducteur de Langage naturel en R avec Llama3 (système Unix ou Linux y compris macOS)
+# Environmental News AI News Checker (système Unix ou Linux y compris macOS)
 
-Ce projet contient un script Python qui permet de traduire une demande en langage naturel en code directement via un raccourci.
+Ce projet tente de mobiliser et combiner la littérature scientifique et l’IA afin de lutter contre la désinformation. 
+En particulier, nous tentons d’entrainer un modèle d’intelligence artificielle sur la littérature de l’économie de l’environnement afin qu’il puisse vérifier les articles de presse écrite.
 
 ## Prérequis
 
-Avant de commencer, assurez-vous d'avoir Python installé sur votre machine. Ce script a été testé avec Python 3.8 et supérieur. Vous aurez également besoin d'une clé API de Replicate, que vous pouvez obtenir en vous inscrivant sur leur [site officiel](https://replicate.com).
+Avant de commencer, assurez-vous d'avoir Python installé sur votre machine. Ce script a été testé avec Python 3.8 et supérieur. 
+Vous aurez également besoin d'une clé API de Replicate, que vous pouvez obtenir en vous inscrivant sur leur [site officiel](https://replicate.com).
 
-## Installation
+## Installation du projet GitHub
 
 Pour installer le code Python et les bibliothèques nécessaires, suivez les étapes ci-dessous :
 
 1. **Cloner le dépôt**
    
-   Ouvrez un terminal et exécutez la commande suivante pour télécharger les fichiers nécessaires :
+   Ouvrez votre terminal et exécutez la commande suivante pour télécharger les fichiers nécessaires :
    ```bash
    git clone https://github.com/MateoDib/Natural_language_request_Llama3.git
    ```
@@ -34,11 +36,11 @@ Pour installer le code Python et les bibliothèques nécessaires, suivez les ét
    pwd
    ```
 
-   Copiez ce chemin et ajoutez-y "/Natural_language_to_R.py" de manière à construire le chemin vers le code Python qui nous sera utile plus tard. Cela devrait ressembler à ceci :
+   Copiez ce chemin et enregistrez-le quelque part afin d’y avoir facilement accès plus tard. 
+Cela devrait ressembler à ceci :
    ```bash
    /Users/nom_user/Natural_language_request_Llama3/Natural_language_to_R.py
    ```
-   Vous pouvez simplement le garder de côté, nous en aurons besoin par la suite.
 
 4. **Installer les dépendances dans le dossier du projet**
 
@@ -57,84 +59,6 @@ Pour installer le code Python et les bibliothèques nécessaires, suivez les ét
 Vous avez dorénavant téléchargé tout ce qu'il fallait. Vous pouvez continuer la configuration.
 
 
-
-## Configurer la clé API (cette étape n'est pas nécessaire
-
-   Configurez votre clé API en créant la variable d'environnement REPLICATE_API_TOKEN. Pour cela, il va falloir modifier votre fichier .bashrc ou .zshrc. La modification est ainsi "permanente", c'est-à-dire que vous aurez toujours accès à cette variable, jusqu'à modification/suppression.
-
-1. **Ouvrir le terminal sur votre machine**
-
-   Appuyez sur Command + Espace, puis écrivez "Terminal" dans la barre de recherche. Et enfin tapez sur Entrer.
-
-
-Vous allez maintenant devoir éditer le fichier .bashrc pour les utilisateurs de Bash ou .zshrc pour les utilisateurs de Zsh. Pour réaliser correctement cette tâche suivez les étapes suivantes :
-
-2. **Connaître l'interpréteur de commandes**
-
-   Pour savoir si vous êtes en Bash ou Zsh exécutez la commande suivante dans le terminal :
-    ```bash
-   echo $SHELL
-   ```
-
-3. **Ouverture du fichier .bashrc ou .zshrc**
-    En fonction de la sortie précédent, exécuté :
-   ```bash
-   # Pour les utilsateurs de Bash (.bashrc)
-   nano ~/.bashrc
-   ```
-   ```bash
-    # Pour les utilisateurs de Zsh (.zshrc)
-   nano ~/.zshrc
-   ```
-
-4. **Définir la clé API**
-
-   Ajouter la ligne suivante à la fin du fichier (la configuration est étonante mais faites-vous confiance, la fin du fichier c'est juste en bas, vous avez simplement à copier la ligne suivante):
-   ```bash
-   # Assurez-vous de remplacer 'votre_clé_api' par votre clé API de Replicate, tout en gardant les guillements comme tels.
-   export REPLICATE_API_TOKEN='votre_clé_api'
-   ```
-   
-5. **Sauvegarder le fichier et quitter l'éditeur**
-
-Sauvegardez le fichier et quittez l'éditeur en appuyant sur Control+O (c'est un O comment dans ouvrir), puis Enter, et quitter avec Ctrl+X.
-
-6. **Appliquer les modifications**
-
-   Pour être sûr que les  modifications ont bien été prises en compte exécutez les commandes suivantes sur le terminal toujours :
-   ```bash
-   # Pour les utilisateurs de Bash (.bashrc)
-   source ~/.bashrc
-   ```
-   
-   ```bash
-   # Pour les utilisateurs de Zsh (.zshrc)
-   source ~/.zshrc
-   ```
-7. **Vérifier la création de la variable d'environnement**
-   
-   Vérifiez que la variable d'environnement s'est bien enregistrée en fermant le terminal puis en l'ouvrant de nouveau pour exécuter la commande suivante
-   ```bash
-   echo $REPLICATE_API_TOKEN
-   ```
-Si la valeur de votre clé apparait, c'est que la variable d'environnement s'est bien enregistrée.
-
-En ajoutant cette ligne à votre fichier .bashrc ou .zshrc, vous configurez votre clé API pour être automatiquement disponible dans toutes les nouvelles sessions de terminal, ce qui facilite l'utilisation de scripts et d'outils nécessitant cette clé sans avoir à la configurer à chaque fois.
-
-
-## Si vous ne souhaitez pas définir la clé API en tant que variable d'environnement
-
-  Vous devrez simplement spécifier la clé API via la commande suivante lors de l'écriture du code dans le shell afin de créer le raccourci :
-  ```bash
-   REPLICATE_API_TOKEN='votre_clé_api' /Users/nom_user/votre_chemin_vers_environnement_python/python3 /Users/nom_user/Natural_language_Llama3_shortcut/Natural_language_to_R.py
-   ```
-   À la place du code suivant :
-   ```bash
-   /Users/nom_user/votre_chemin_vers_environnement_python/python3 /Users/nom_user/Natural_language_Llama3_shortcut/Natural_language_to_R.py
-   ```
-
-
-
 ## Créez un raccourci vers le script Python : 
 
 Pour vous permettre d'exécuter facilement le script Python et donc d'avoir un raccourci, vous pouvez créer un raccourci à partir de l'application Raccourcis de Mac (disponible par défaut normalement). Voici les étapes à suivre pour cela :
@@ -145,44 +69,114 @@ Pour vous permettre d'exécuter facilement le script Python et donc d'avoir un r
 
 3. **Dans la barre de recherche à droite, tapez "Shell" et l'option "Exécuter un script Shell" apparaîtra. Sélectionnez-la.**
 
-4. **Dans la zone de texte du script Shell, supprimez le texte apparant s'il y en a un.**
+4. **Dans la zone de texte du script Shell, supprimez le texte apparent s'il y en a un.**
 
 5. **Entrez la commande Python pour exécuter votre script dans le script Shell**
    
-   En remplaçant les chemins de l'environnement python et du script par ceux adaptés à vos chemins, a commande devrait ressembler à ceci :
+	En remplaçant le chemin par ceux adaptés à votre chemin, la commande devrait ressembler à ceci :
    ```bash
-   /Users/nom_user/votre_chemin_vers_environnement_python/python3 /Users/nom_user/Natural_language_Llama3_shortcut/Natural_language_to_R.py
+   chmod +x /Users/nom_user/lanceur.sh && ./lanceur.sh
+   ```
+
+	Pour savoir quoi mettre à la place de /Users/nom_user/votre_chemin_vers_environnement_python/python3, lancez la commande   suivante sur votre terminal :
+   ```bash
+   which lanceur.sh
+   ```
+
+6. **Vérifier le Shell et la sortie **
+
+	L’option ‘Shell’ présente différentes options. Pour savoir laquelle choisir parmi les options « sh » (pour bash) ou « zsh », exécutez le code suivant :
+   ```bash
+   echo $SHELL
+    ```
+
+	De plus, pour l’option « Transmettre l’entrée », il faudra choisir l’option « vers stdin ».
+
+Si la sortie est « /bin/zsh », vous devrez renseigner « zsh », si c’est « /bin/bash », alors vous devrez choisir « sh ».
+
+
+7. ** Rattacher le raccourci à une commande clavier**
+
+	Afin de relier le raccourci à une commande clavier, vous pouvez cliquer sur le « i » en haut à droite et de nouvelles options apparaîtront, dont l’option « Ajouter un raccourci clavier ». Avant d’entrer un raccourci clavier, veiller à ce que ce raccourci n’existe pas déjà pour une autre action.
+
+8. **Donnez un nom à votre raccourci et enregistrez-le.**
+   
+   Vous pouvez l'épingler à la barre des menus afin de cliquer dessus lorsque vous souhaitez l'utiliser.
+
+
+
+## Configurer les paramètres afin de pouvoir utiliser l’IA News Checker
+
+  Afin de pouvoir utiliser l’IA News Checker, il vous faudra d’abord renseigner votre clé API Replicate, ainsi que les différents chemins d’accès aux dossiers que vous venez d’installer suite au téléchargement du projet GitHub. Pour enregistrer les paramètres nécessaires, et pour pouvoir par la suite les modifier, il est utile de créer un 
+
+
+1. **Ouvrez l'application Raccourcis sur votre Mac.**
+
+2. **Créez un nouveau raccourci en cliquant sur le bouton "+", en haut à droite.**
+
+3. **Dans la barre de recherche à droite, tapez "Shell" et l'option "Exécuter un script Shell" apparaîtra. Sélectionnez-la.**
+
+4. **Dans la zone de texte du script Shell, supprimez le texte apparent s'il y en a un.**
+
+5. **Entrez la commande Python pour exécuter votre script dans le script Shell**
+   
+   En remplaçant le chemin par ceux adaptés à votre chemin, la commande devrait ressembler à ceci :
+   ```bash
+/opt/anaconda3/bin/python3 /Users/nom_user/Natural_language_request_Llama3/Createur_lanceur.py
    ```
 
    Pour savoir quoi mettre à la place de /Users/nom_user/votre_chemin_vers_environnement_python/python3, lancez la commande   suivante sur votre terminal :
    ```bash
    which python3
    ```
-   Et si cela ne vous ressort pas un chemin similaire, exécutez la commande suivante :
+Ou, si cela ne fonctionne pas :
    ```bash
    which python
    ```
 
-6. **Donnez un nom à votre raccourci et enregistrez-le.**
-   
-   Vous pouvez l'épingler à la barre des menus afin de cliquer dessus lorsque vous souhaitez l'utiliser.
-
-7. **Erreur de reconnaissance de la clé API?**
-
-   Si vous êtes sur que votre clé fonctionne mais qu'une erreur apparait lors du lancement du raccourci, tentez de modifier le script du shell dans le raccourci que vous avez créé comme suit :
+   Pour savoir quoi mettre à la place de /Users/nom_user/Natural_language_request_Llama3/Createur_lanceur.py, lancez la commande   suivante sur votre terminal :
    ```bash
-   REPLICATE_API_TOKEN='votre_clé_api' /Users/nom_user/votre_chemin_vers_environnement_python/python3 /Users/nom_user/Natural_language_Llama3_shortcut/Natural_language_to_R.py
+   cd Natural_language_request_Llama3
+   ```
+Puis :
+```bash
+   pwd 
    ```
 
-   Cela devrait maintenant fonctionne correctement.
+Vous obtenez ainsi le chemin vers Createur_lanceur.py que vous devrez remplacer dans le chemin.
+
+
+6. **Vérifier la sortie **
+
+	L’option ‘Shell’ présente différentes options. Pour savoir laquelle choisir parmi les options « sh » (pour bash) ou « zsh », exécutez le code suivant :
+   ```bash
+   echo $SHELL
+    ```
+
+	De plus, pour l’option « Transmettre l’entrée », il faudra choisir l’option « vers stdin ».
+
+Si la sortie est « /bin/zsh », vous devrez renseigner « zsh », si c’est « /bin/bash », alors vous devrez choisir « sh ».
+
+
+7. ** Rattacher le raccourci à une commande clavier**
+
+	Afin de relier le raccourci à une commande clavier, vous pouvez cliquer sur le « i » en haut à droite et de nouvelles options apparaîtront, dont l’option « Ajouter un raccourci clavier ». Avant d’entrer un raccourci clavier, veiller à ce que ce raccourci n’existe pas déjà pour une autre action.
+
+
+8. **Donnez un nom à votre raccourci et enregistrez-le.**
+   
+   Vous pouvez l'épingler à la barre des menus afin de cliquer dessus lorsque vous souhaitez l'utiliser.
+Maintenant, vous devez lancer une première fois le Raccourci pour enregistrer votre clé API et les chemins d’accès.
+
+
+## Configuration terminée
 
 Voilà, vous pouvez maintenant copier un texte, cliquer sur votre raccourci, et coller le texte corrigé n'importe où.
 
 
+## Mise à jour du projet 
 
-## Mise à jour 
-
-Si vous avez déjà effectué toutes ces étapes auparavant mais que vous souhaitez simplement avoir la nouvelle versionne du repository, exécutez les commandes suivantes dans le terminal :
+Si vous avez déjà effectué toutes ces étapes auparavant mais que vous souhaitez simplement avoir la nouvelle version du repository, exécutez les commandes suivantes dans le terminal :
    ```bash
    # Veillez à remplacer le chemin par le votre
    # Pour rappel vous pouvez connaître ce chemin simplement en exécutant "cd Natural_language_to_R"
