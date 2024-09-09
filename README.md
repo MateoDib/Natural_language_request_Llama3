@@ -128,7 +128,7 @@ Si la sortie est « /bin/zsh », vous devrez renseigner « zsh », si c’es
    
    En remplaçant le chemin par ceux adaptés à votre chemin, la commande devrait ressembler à ceci :
    ```bash
-/opt/anaconda3/bin/python3 /Users/nom_user/Natural_language_request_Llama3/Createur_lanceur.py
+	/opt/anaconda3/bin/python3 /Users/nom_user/Natural_language_request_Llama3/Createur_lanceur.py
    ```
 
    Pour savoir quoi mettre à la place de /Users/nom_user/votre_chemin_vers_environnement_python/python3, lancez la commande   suivante sur votre terminal :
