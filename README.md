@@ -184,9 +184,7 @@ Voilà, vous pouvez maintenant copier un texte, cliquer sur votre raccourci, et 
 
 Si vous avez déjà effectué toutes ces étapes auparavant mais que vous souhaitez simplement avoir la nouvelle version du repository, exécutez les commandes suivantes dans le terminal :
    ```bash
-   # Veillez à remplacer le chemin par le votre
-   # Pour rappel vous pouvez connaître ce chemin simplement en exécutant "cd Natural_language_to_R"
-   cd /Users/mateo/Natural_language_request_Llama3
+   cd Natural_language_request_Llama3
    ```
    Puis :
    ```bash
